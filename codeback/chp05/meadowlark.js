@@ -20,6 +20,7 @@ app.get('/', function(req, res){
     res.render("home");
 });
 
+
 app.get('/about', function(req, res){
     res.render('about', {
          fortune: fortune.getFortune() ,
@@ -35,13 +36,6 @@ app.get('/tours/request-group-rate', function(req, res){
     res.render('tours/request-group-rate');
 });
 
-//   查看瀏覽器發送的信息
-app.get('/headers', function(req, res){
-    res.set("Content-Type", 'text/plain');
-    var s = "";
-    for (var name in req.headers) s += name + ': ' + req.headers[name] + '\n';
-    res.send(s)
-});
 // 定制 404 页面
 app.use(function(req, res){
     res.status(404);

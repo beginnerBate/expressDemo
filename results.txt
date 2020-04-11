@@ -1,0 +1,97 @@
+
+[0m[0m
+[0m  "About" Page Tests[0m
+  [31m  1) page should contain link to contact page[0m
+
+[0m  Cross-Page Tests[0m
+[HMR] Waiting for update signal from WDS...
+%cDownload the React DevTools for a better development experience: https://fb.me/react-devtools font-weight:bold
+  [31m  2) 1requesting a group rate quote from the hood river tour pageshould populate the referrer field[0m
+[HMR] Waiting for update signal from WDS...
+%cDownload the React DevTools for a better development experience: https://fb.me/react-devtools font-weight:bold
+  [31m  3) 2requesting a group rate from the oregon coast tour page should populate the referrer field[0m
+The above error occurred in the <Lifecycle> component:
+    in Lifecycle (created by Context.Consumer)
+    in Redirect (at router.js:42)
+    in Switch (at router.js:33)
+    in main (created by Basic)
+    in Basic (created by Context.Consumer)
+    in Content (at admin.js:108)
+    in section (created by BasicLayout)
+    in BasicLayout (created by Context.Consumer)
+    in Layout (at admin.js:105)
+    in section (created by BasicLayout)
+    in BasicLayout (created by Context.Consumer)
+    in Layout (at admin.js:24)
+    in section (created by BasicLayout)
+    in BasicLayout (created by Context.Consumer)
+    in Layout (at admin.js:15)
+    in AdminView (at admin.js:154)
+    in Admin (created by ConnectFunction)
+    in ConnectFunction (created by Context.Consumer)
+    in withRouter(Connect(Admin)) (at router.js:32)
+    in Route (at router.js:31)
+    in Switch (at router.js:28)
+    in App (at router.js:27)
+    in Router (created by HashRouter)
+    in HashRouter (at router.js:26)
+    in BasicRoute (at src/index.js:24)
+    in Provider (at src/index.js:23)
+    in LocaleProvider (created by Context.Consumer)
+    in LocaleReceiver (created by ConfigProvider)
+    in ConfigProvider (at src/index.js:22)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://fb.me/react-error-boundaries to learn more about error boundaries.
+  [31m  4) 3visiting the "request group rate" page dirctly should result in an empty referrer field[0m
+
+[0m  Global Tests[0m
+[HMR] Waiting for update signal from WDS...
+%cDownload the React DevTools for a better development experience: https://fb.me/react-devtools font-weight:bold
+  [31m  5) page has a valid title[0m
+
+[0m  Fortune cookie tests[0m
+  [32m  √[0m[90m getFortune() should return a fortune[0m
+
+
+[92m [0m[32m 1 passing[0m[90m (5s)[0m
+[31m  5 failing[0m
+
+[0m  1) "About" Page Tests
+       page should contain link to contact page:
+[0m[31m     ReferenceError: assert is not defined[0m[90m
+    at Context.<anonymous> (public\qa\tests-about.js:3:13)
+    at process.topLevelDomainCallback (domain.js:120:23)
+  
+[0m
+[0m  2) Cross-Page Tests
+       1requesting a group rate quote from the hood river tour pageshould populate the referrer field:
+[0m[31m     Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure "done()" is called; if returning a Promise, ensure it resolves. (D:\我的大前端\node与express开发\expresstest\expressdemo\public\qa\tests-crosspage.js)[0m[90m
+  
+[0m
+[0m  3) Cross-Page Tests
+       2requesting a group rate from the oregon coast tour page should populate the referrer field:
+[0m[31m     Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure "done()" is called; if returning a Promise, ensure it resolves. (D:\我的大前端\node与express开发\expresstest\expressdemo\public\qa\tests-crosspage.js)[0m[90m
+  
+[0m
+[0m  4) Cross-Page Tests
+       3visiting the "request group rate" page dirctly should result in an empty referrer field:
+[0m[31m     Uncaught AssertionError [ERR_ASSERTION]: No link matching '.requestGroupRate'[0m[90m
+    at Browser.clickLink (node_modules\_zombie@6.1.4@zombie\lib\index.js:553:5)
+    at D:\我的大前端\node与express开发\expresstest\expressdemo\public\qa\tests-crosspage.js:12:21
+    at Browser.done (node_modules\_zombie@6.1.4@zombie\lib\eventloop.js:424:9)
+    at Browser.EventEmitter.emit (domain.js:441:20)
+    at window._eventQueue.enqueue (node_modules\_zombie@6.1.4@zombie\lib\document.js:109:46)
+    at Immediate.<anonymous> (node_modules\_zombie@6.1.4@zombie\lib\eventloop.js:503:11)
+    at process.topLevelDomainCallback (domain.js:120:23)
+  
+[0m
+[0m  5) Global Tests
+       page has a valid title:
+[0m[31m     ReferenceError: assert is not defined[0m[90m
+    at Context.<anonymous> (public\qa\tests-global.js:3:9)
+    at process.topLevelDomainCallback (domain.js:120:23)
+  
+[0m
+
+
