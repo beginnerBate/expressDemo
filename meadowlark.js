@@ -1,9 +1,16 @@
 var express = require("express");
 var exphbs  = require('express-handlebars');
 var fortune = require('./lib/fortune.js');
+var bodyParser = require('body-parser')
+
 var app = express();
 var hbs = exphbs.create({ /* config */ });
 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({extended:false}));
+
+// parse application/json
+app.use(bodyParser.json());
 app.use(express.static('public'));
 
 app.engine('handlebars',hbs.engine);
@@ -35,7 +42,33 @@ app.get('/tours/request-group-rate', function(req, res){
     res.render('tours/request-group-rate');
 });
 
-//   查看瀏覽器發送的信息
+//    form post 表单处理
+app.get("/newsletter", function(req, res){
+    res.render("newsletter", {csrf:"CSRF token goes here"});
+})
+
+app.post('/process', function(req, res){
+    console.log("form "+ req.query.form);
+    console.log("form name" + req.body.name);
+    console.log("form _csrf" + req.body._csrf);
+    console.log("form email" + req.body.email);
+    res.redirect(303,'/thank you')
+
+})
+//  ajax 表单处理
+app.get("/newsletterAjax", function(req, res){
+    res.render("newsletterAjax", {csrf:"CSRF token goes here"});
+})
+
+app.post('/ajaxprocess', function(req, res){
+    if(req.xhr || req.accepts("json, html") === 'json'){
+        res.send({ success: true });
+    } else {
+        res.redirect(303, '/thank-you');
+    }
+
+})
+//   查看浏览器请求头
 app.get('/headers', function(req, res){
     res.set("Content-Type", 'text/plain');
     var s = "";
