@@ -1,9 +1,13 @@
 var express = require("express");
 var exphbs  = require('express-handlebars');
 var fortune = require('./lib/fortune.js');
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var credentials = require('./credentials');
 
 var app = express();
+app.use(cookieParser(credentials.cookieSecret))
 var hbs = exphbs.create({ 
     helpers:{
         section: function(name, block){
@@ -27,11 +31,22 @@ app.set('view engine', 'handlebars');
 app.set('port', process.env.PORT || 3000);
 
 app.use(function(req, res, next){
+    // 如果有即显消息，把它传到上下文中，然后清除它
+    res.locals.flash = req.session.flash;
+    delete req.session.flash;
+    next();
+});
+app.use(function(req, res, next){
     res.locals.showTests = app.get('env') !== 'production' && req.query.test === '1';
     next();
 });
     
 app.get('/', function(req, res){
+    //  cookie demo
+    res.cookie('monster', 'nom nom');
+     res.cookie('signed_monster', 'nom nom', { signed: true });
+    //   会在客户端留下cookies
+
     res.render("home");
 });
 
