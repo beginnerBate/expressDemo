@@ -21,7 +21,7 @@
     "grunt-exec": "^3.0.0",
     "grunt-mocha": "^1.2.0",
     "grunt-mocha-test": "^0.13.3",
-    "mocha": "^7.1.1",
+    "mocha": "^10.2.0",
     "nodemon": "^2.0.2",
     "zombie": "^6.1.4"
   }
